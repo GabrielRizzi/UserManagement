@@ -6,6 +6,7 @@
           <ion-menu-button></ion-menu-button>
         </ion-buttons>
         <ion-title>{{ folder }}</ion-title>
+        <ion-title>{{ segundo }}</ion-title>
       </ion-toolbar>
     </ion-header>
     
@@ -43,13 +44,14 @@ export default {
   setup() {
     const route = useRoute();
     const folder = ref(route.params.id || 'Inbox');
+    const segundo = ref(route.params.segundo || 'Inbox');
     const matchedFolder = computed(() => route.params.id);
     
     watch(matchedFolder, () => {
       folder.value = matchedFolder.value as string;
     })
     
-    return { folder }
+    return { folder , segundo }
   }
 }
 </script>
